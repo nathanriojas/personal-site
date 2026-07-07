@@ -1,47 +1,27 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Folder config file
-Desktop.ini
+# dependencies
+/node_modules
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# next.js
+/.next/
+/out/
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+# production
+/build
 
-# Windows shortcuts
-*.lnk
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
-# =========================
-# Operating System Files
-# =========================
+# env files
+.env*
 
-# OSX
-# =========================
+# vercel
+.vercel
 
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# typescript
+*.tsbuildinfo
+next-env.d.ts.claude/

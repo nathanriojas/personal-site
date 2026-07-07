@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"//wsl.localhost/ubuntu/home/nriojas39/projects/github/my-website/nathanriojas.github.io\" && ls && echo \"---src---\" && ls src 2>/dev/null && echo \"---\" && cat package.json 2>/dev/null | head -40)",
+      "Read(///wsl.localhost/ubuntu/home/nriojas39/projects/github/my-website/**)",
+      "Bash(wsl -e bash -lc 'which node python3 identify; node -v 2>/dev/null; python3 -c \"import PIL; print\\(\\\\\"PIL ok\\\\\"\\)\" 2>/dev/null')",
+      "Bash(wsl -e *)",
+      "Bash(cd \"//wsl.localhost/ubuntu/home/nriojas39/projects/github/my-website/nathanriojas.github.io\" *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls components/ui)",
+      "Bash(cd \"//wsl.localhost/ubuntu/home/nriojas39/projects/github/my-website/nathanriojas.github.io/public\" *)",
+      "Bash(wsl -e bash -lc 'cd /home/nriojas39/projects/github/my-website/nathanriojas.github.io/public/projects *)",
+      "Bash(wsl -e bash -lc 'cd /home/nriojas39/projects/github/my-website/nathanriojas.github.io *)",
+      "Bash(wsl -e bash -lc 'cd /home/nriojas39/projects/github/my-website/nathanriojas.github.io; echo \"TOP:\"; ls -1; echo; echo \"APP:\"; ls -1 app; echo; echo \"COMPONENTS:\"; ls -1 components; echo; echo \"LIB:\"; ls -1 lib; echo; echo \"SCRIPTS:\"; ls -1 scripts; echo; echo \"FIELD-NOTES FOLDERS:\"; ls -1 public/field-notes; echo; echo \"README:\"; ls -la README.md 2>/dev/null || echo none')"
+    ]
+  }
+}
