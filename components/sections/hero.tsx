@@ -41,7 +41,7 @@ export function Hero() {
         />
 
         <h1
-          className="mt-4 animate-intro text-balance font-mono text-5xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          className="mt-4 animate-intro text-balance font-mono text-5xl font-semibold tracking-tight text-foreground [word-spacing:-0.22em] sm:text-6xl lg:text-7xl"
           style={{ animationDelay: "900ms" }}
         >
           {/* The first name is the start anchor for the flying-name overlay,
@@ -101,9 +101,18 @@ export function Hero() {
             </a>
           </li>
           <li>
+            {/* On mobile the mail icon scrolls to the contact form; on larger
+                screens it opens the visitor's mail client. */}
+            <a
+              href="#contact"
+              className="text-muted-foreground transition-colors hover:text-primary sm:hidden"
+              aria-label={hero.aria.email}
+            >
+              <Mail className="size-6" />
+            </a>
             <a
               href={`mailto:${site.email}`}
-              className="text-muted-foreground transition-colors hover:text-primary"
+              className="hidden text-muted-foreground transition-colors hover:text-primary sm:inline-block"
               aria-label={hero.aria.email}
             >
               <Mail className="size-6" />

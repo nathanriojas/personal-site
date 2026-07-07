@@ -424,7 +424,7 @@
 }
 .edu-card:hover {
   /* Border only shifts subtly toward the accent — it supports, not leads. */
-  border-color: color-mix(in oklab, var(--edu-accent) 22%, var(--border));
+  border-color: color-mix(in oklab, var(--edu-accent) 24%, var(--border));
   background-color: color-mix(in oklab, var(--edu-accent) 3.5%, var(--card));
   /* Color stays contained: a faint inner highlight along the top edge, like
      light grazing the surface. No colored drop shadow outside the card. */

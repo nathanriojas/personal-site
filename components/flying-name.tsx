@@ -41,19 +41,38 @@ export function FlyingName() {
       // Ease for a smoother settle near the dock.
       const eased = 1 - Math.pow(1 - p, 3)
 
-      const hero = heroAnchor.getBoundingClientRect()
-      const navRect = navAnchor.getBoundingClientRect()
+      // Measure the two invisible anchors by their GLYPH boxes (via a Range),
+      // not their element boxes. An inline span's box and the block overlay's
+      // line box position letters at different heights, so element-box matching
+      // left the two name halves visibly uneven. Glyph-to-glyph is exact.
+      const heroRange = document.createRange()
+      heroRange.selectNodeContents(heroAnchor)
+      const heroG = heroRange.getBoundingClientRect()
+      const navRange = document.createRange()
+      navRange.selectNodeContents(navAnchor)
+      const navG = navRange.getBoundingClientRect()
 
       const startFs = Number.parseFloat(getComputedStyle(heroAnchor).fontSize)
       const endFs = Number.parseFloat(getComputedStyle(navAnchor).fontSize)
       const scale = (startFs + (endFs - startFs) * eased) / startFs
 
-      const x = hero.left + (navRect.left - hero.left) * eased
-      const y = hero.top + (navRect.top - hero.top) * eased
+      // Target letter position, interpolated hero → nav.
+      const targetLeft = heroG.left + (navG.left - heroG.left) * eased
+      const targetTop = heroG.top + (navG.top - heroG.top) * eased
 
       overlay.style.fontSize = `${startFs}px`
-      overlay.style.transform = `translate(${x}px, ${y}px) scale(${scale})`
       overlay.style.opacity = "1"
+      // Place at target, then read the overlay's own glyph box and correct by
+      // the residual so the letters land exactly on target, whatever the font
+      // metrics or line-height happen to be. (translate is in screen px, so a
+      // single correction is exact even with the scale applied.)
+      overlay.style.transform = `translate(${targetLeft}px, ${targetTop}px) scale(${scale})`
+      const ovRange = document.createRange()
+      ovRange.selectNodeContents(overlay)
+      const ovG = ovRange.getBoundingClientRect()
+      const x = targetLeft + (targetLeft - ovG.left)
+      const y = targetTop + (targetTop - ovG.top)
+      overlay.style.transform = `translate(${x}px, ${y}px) scale(${scale})`
       // The period fades in as the full name ("... Riojas") scrolls away.
       const docked = Math.min(Math.max((p - 0.55) / 0.45, 0), 1)
       dot.style.opacity = `${docked}`
@@ -87,7 +106,7 @@ export function FlyingName() {
       ref={overlayRef}
       aria-hidden="true"
       style={{ transformOrigin: "top left", opacity: 0 }}
-      className="pointer-events-none fixed left-0 top-0 z-[60] whitespace-nowrap font-mono font-semibold tracking-tight text-foreground will-change-transform"
+      className="pointer-events-none fixed left-0 top-0 z-[60] whitespace-nowrap font-mono font-semibold leading-none tracking-tight text-foreground will-change-transform"
     >
       {firstName}
       <span ref={dotRef} className="text-primary" style={{ opacity: 0 }}>

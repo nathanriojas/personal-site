@@ -7,7 +7,7 @@
 export const contact = {
   section: {
     intro:
-      "Whether it's an interesting project, a difficult engineering problem, or just a conversation worth having, feel free to reach out. Drop a note below and it'll land straight in my inbox.",
+      "Whether it's an interesting project or just a conversation worth having, feel free to reach out. Drop a note below and it'll land straight in my inbox.",
     directLabel: "Prefer something direct?",
     social: {
       // Email aria label is composed as `${emailAriaPrefix} ${site.email}`.
