@@ -6,7 +6,7 @@ export const fieldNotes = {
   eyebrow: "A second notebook",
   title: "Field Notes",
   /** Calm, editorial lede — the antithesis of the dense portfolio. */
-  lede: "These aren't meant to be professional photographs. They're moments that caught my attention while traveling, all captured on the camera that happened to be in my pocket.",
+  lede: "A collection of travel moments that caught my eye, captured with the camera I had in my pocket.",
 } as const
 
 export const fieldNotesPage = {

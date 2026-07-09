@@ -7,8 +7,8 @@
 export const contact = {
   section: {
     intro:
-      "Whether it's an interesting project or just a conversation worth having, feel free to reach out. Drop a note below and it'll land straight in my inbox.",
-    directLabel: "Prefer something direct?",
+      "Interested in working together or just want to start a conversation? Drop a note below and it’ll go straight to my inbox.",
+    directLabel: "Other ways to connect:",
     social: {
       // Email aria label is composed as `${emailAriaPrefix} ${site.email}`.
       emailAriaPrefix: "Email",
@@ -26,10 +26,10 @@ export const contact = {
       message: "Message",
     },
     placeholders: {
-      name: "Who are you?",
+      name: "Name",
       email: "you@example.com",
-      subject: "What's on your mind?",
-      message: "Tell me more.",
+      subject: "Subject",
+      message: "What's on your mind?",
     },
     submit: "Send message",
     submitting: "Sending…",
