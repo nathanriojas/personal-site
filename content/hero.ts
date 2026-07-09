@@ -20,7 +20,7 @@ export const hero = {
  */
 export const heroCaption = {
   title: "Uyuni Salt Flats",
-  meta: "Bolivia · January 2024",
+  meta: "Bolivia · September 2024",
   cta: "Field Notes",
   ariaLabel: "Field Notes — a photography journal by Nathan Riojas",
 } as const
