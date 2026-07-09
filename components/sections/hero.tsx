@@ -15,7 +15,7 @@ export function Hero() {
     <section
       id="top"
       aria-label="Introduction"
-      className="relative flex min-h-[100svh] items-center"
+      className="relative flex min-h-[100svh] items-center pt-24 pb-16 sm:pt-28"
     >
       {/* Full-bleed background portrait */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
