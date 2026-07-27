@@ -18,6 +18,7 @@ function isInspectable(_src: string) {
  */
 export function ProjectGallery({
   images,
+  alts,
   index,
   title,
   onPrev,
@@ -25,6 +26,8 @@ export function ProjectGallery({
   onInspect,
 }: {
   images: string[]
+  /** Descriptive alt text aligned to `images`; falls back to a generated label. */
+  alts?: string[]
   index: number
   title: string
   onPrev: () => void
@@ -32,6 +35,7 @@ export function ProjectGallery({
   onInspect: () => void
 }) {
   const src = images[index]
+  const alt = alts?.[index] ?? `${title} preview ${index + 1}`
   const hasMultiple = images.length > 1
   const inspectable = isInspectable(src)
 
@@ -50,7 +54,7 @@ export function ProjectGallery({
       >
         <ProjectMedia
           src={src}
-          alt={`${title} preview ${index + 1}`}
+          alt={alt}
           sizes="(max-width: 768px) 100vw, 672px"
           priority
         />

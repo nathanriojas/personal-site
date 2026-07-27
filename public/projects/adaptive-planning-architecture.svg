@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <title>Adaptive planning system — sanitized architecture</title>
+  <defs>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.6" fill="#eef3f1"/>
+    </pattern>
+    <marker id="ahg" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 1L10 6L0 11Z" fill="#0e9d73"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect width="1280" height="720" fill="url(#dots)"/>
+
+  <!-- Header -->
+  <text x="31" y="50" font-size="17" fill="#0e9d73" letter-spacing="2" font-weight="600">ADAPTIVE PLANNING SYSTEM</text>
+  <text x="31" y="74" font-size="14" fill="#8b979d" letter-spacing="2">SANITIZED ARCHITECTURE</text>
+
+  <!-- Section kickers -->
+  <text x="208" y="166" font-size="13" fill="#8b979d" text-anchor="middle" letter-spacing="2">CONTEXT INPUTS</text>
+  <text x="964" y="166" font-size="13" fill="#0e9d73" text-anchor="middle" letter-spacing="2">HUMAN-IN-THE-LOOP</text>
+
+  <!-- Primary top-row arrows -->
+  <g stroke="#0e9d73" stroke-width="3" fill="none">
+    <line x1="298" y1="252" x2="334" y2="252" marker-end="url(#ahg)"/>
+    <line x1="514" y1="252" x2="550" y2="252" marker-end="url(#ahg)"/>
+    <line x1="730" y1="252" x2="766" y2="252" marker-end="url(#ahg)"/>
+    <line x1="946" y1="252" x2="982" y2="252" marker-end="url(#ahg)"/>
+  </g>
+
+  <!-- User confirmation gate on the plans -> execution transition -->
+  <rect x="673" y="176" width="150" height="26" rx="13" fill="#e3f5ec" stroke="#0e9d73" stroke-width="1.5"/>
+  <text x="748" y="194" font-size="12" font-weight="700" fill="#0f5132" text-anchor="middle" letter-spacing="1">USER CONFIRMS</text>
+  <line x1="748" y1="202" x2="748" y2="250" stroke="#0e9d73" stroke-width="1.5" stroke-dasharray="3 4"/>
+
+  <!-- Context input aggregate -->
+  <rect x="120" y="200" width="176" height="104" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+  <g font-size="14" fill="#334155" text-anchor="middle">
+    <text x="208" y="226">Goals</text>
+    <text x="208" y="248">Calendar</text>
+    <text x="208" y="270">Responsibilities</text>
+    <text x="208" y="292">Working patterns</text>
+  </g>
+
+  <!-- Primary stage boxes -->
+  <g fill="#1f2a37" text-anchor="middle" font-weight="600" font-size="19">
+    <rect x="336" y="200" width="176" height="104" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="424" y="244"><tspan x="424">Planning</tspan><tspan x="424" dy="28">engine</tspan></text>
+
+    <rect x="552" y="200" width="176" height="104" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="640" y="244"><tspan x="640">Daily &amp;</tspan><tspan x="640" dy="28">weekly plans</tspan></text>
+
+    <rect x="768" y="200" width="176" height="104" rx="14" fill="#e3f5ec" stroke="#0e9d73" stroke-width="3"/>
+    <text x="856" y="244" fill="#0f5132" font-weight="700"><tspan x="856">User</tspan><tspan x="856" dy="28">execution</tspan></text>
+
+    <rect x="984" y="200" width="176" height="104" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="1072" y="244"><tspan x="1072">Review &amp;</tspan><tspan x="1072" dy="28">feedback</tspan></text>
+  </g>
+
+  <!-- Confirmation badge on user execution -->
+  <circle cx="856" cy="200" r="13" fill="#0e9d73"/>
+  <path d="M850 200 l4 5 l8 -11" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Persistent context hub -->
+  <rect x="500" y="452" width="280" height="100" rx="14" fill="#eef8f3" stroke="#0e9d73" stroke-width="2.5"/>
+  <text x="640" y="494" font-size="20" fill="#1f2a37" font-weight="600" text-anchor="middle"><tspan x="640">Persistent</tspan><tspan x="640" dy="28">context</tspan></text>
+
+  <!-- Feedback loop: review -> persistent context -> planning engine -->
+  <path d="M1072 306 C1072 442 908 502 788 502" fill="none" stroke="#0e9d73" stroke-width="3" marker-end="url(#ahg)"/>
+  <path d="M508 470 C416 448 424 392 424 308" fill="none" stroke="#0e9d73" stroke-width="3" marker-end="url(#ahg)"/>
+  <text x="948" y="556" font-size="13" fill="#0e9d73" text-anchor="middle" letter-spacing="2">FEEDBACK LOOP</text>
+  <text x="392" y="404" font-size="13" fill="#8b979d" text-anchor="end" letter-spacing="1">adapts next cycle</text>
+
+  <!-- Caption -->
+  <text x="31" y="684" font-size="14" fill="#8b979d">User review and confirmation remain part of every cycle — the system recommends and adapts; it does not act autonomously.</text>
+</svg>

@@ -1,12 +1,22 @@
 // Projects section content: the project entries plus the small UI labels used
 // by the projects grid, cards, and detail modal.
 
-export type ProjectCategory = "System Design" | "AI & Robotics" | "Research"
+export type ProjectCategory =
+  | "Agentic Systems"
+  | "System Design"
+  | "AI & Robotics"
+  | "Research"
 
 export type Project = {
   slug: string
   title: string
   category: ProjectCategory
+  /**
+   * Optional badge override shown on the card / modal in place of the category
+   * (e.g. "Agentic System", "Human-in-the-Loop System"). Filtering always keys
+   * off `category`; this only changes the displayed project-type label.
+   */
+  label?: string
   year: string
   role: string
   /** Short blurb shown on the card. */
@@ -21,7 +31,15 @@ export type Project = {
    * .mp4/.webm. Swap any of these for real assets later.
    */
   media: string | string[]
+  /**
+   * Descriptive alt text for the media. A single string applies to every
+   * source; an array aligns per-source with `media`. When omitted, a generic
+   * "<title> preview" is used. Prefer providing this for architecture diagrams.
+   */
+  mediaAlt?: string | string[]
   tags: string[]
+  /** Optional privacy/sanitization note shown as its own section in the modal. */
+  privacyNote?: string
   link?: string
 }
 
@@ -30,19 +48,188 @@ export function projectImages(project: Project): string[] {
   return Array.isArray(project.media) ? project.media : [project.media]
 }
 
+/**
+ * Descriptive alt text aligned to each media source. Falls back to a generic
+ * "<title> preview N" (matching the historical default) when `mediaAlt` is not
+ * provided for a given source.
+ */
+export function projectImageAlts(project: Project): string[] {
+  const images = projectImages(project)
+  const fallback = (i: number) =>
+    images.length > 1
+      ? `${project.title} preview ${i + 1}`
+      : `${project.title} preview`
+  if (!project.mediaAlt) return images.map((_, i) => fallback(i))
+  if (Array.isArray(project.mediaAlt)) {
+    return images.map((_, i) => project.mediaAlt![i] ?? fallback(i))
+  }
+  return images.map(() => project.mediaAlt as string)
+}
+
 /** Visible UI copy for the projects grid / card / modal. */
 export const projectsUi = {
   /** Category filter chips ("All" + each ProjectCategory). */
-  filters: ["All", "System Design", "AI & Robotics", "Research"] as const,
+  filters: [
+    "All",
+    "Agentic Systems",
+    "System Design",
+    "AI & Robotics",
+    "Research",
+  ] as const,
   /** Hover badge on a card. */
   details: "Details",
   /** Heading above the outcomes list in the detail modal. */
   highlights: "Highlights",
+  /** Heading above the privacy/sanitization note in the detail modal. */
+  privacyNote: "Privacy note",
   /** External link at the bottom of the modal. */
   viewProject: "View project",
 } as const
 
 export const projects: Project[] = [
+  {
+    slug: "agentic-investment-intelligence",
+    title: "Agentic Investment Intelligence & Execution System",
+    category: "Agentic Systems",
+    label: "Agentic System",
+    year: "2026",
+    role: "System Designer & Developer",
+    description:
+      "A private, end-to-end investing system that discovers opportunities, assembles market evidence, and evaluates hypotheses — pairing LLM-assisted research with deterministic portfolio, risk, and execution controls.",
+    longDescription:
+      "Designed and built a private, end-to-end investing system that discovers opportunities, assembles market evidence, evaluates investment hypotheses, and manages trade execution. The platform combines LLM-assisted research with deterministic portfolio, risk, and execution controls, keeping probabilistic reasoning strictly separated from the deterministic gate that governs order sizing and execution.",
+    highlights: [
+      "Integrates brokerage data, market and fundamentals providers, regulatory filings, earnings, news, macroeconomic indicators, and market-attention signals.",
+      "Separates probabilistic research and thesis evaluation from deterministic sizing, exposure limits, order validation, and execution.",
+      "Supports unattended operation through persistent state, backtesting, historical replay, audit trails, failure recovery, idempotent order handling, automated reporting, and portfolio-level kill switches.",
+    ],
+    media: "/projects/agentic-investment-architecture.svg",
+    mediaAlt:
+      "Sanitized architecture diagram of the agentic investment system. Market and broker data flows into an evidence layer — fed by regulatory filings, fundamentals, earnings, news and macro data, and portfolio state — then into agentic research. A hard boundary separates that model-assisted reasoning from a deterministic risk and sizing gate, order execution, and monitoring and audit.",
+    tags: [
+      "Agentic Systems",
+      "Python",
+      "Claude",
+      "LLM Orchestration",
+      "System Architecture",
+      "Financial Data",
+      "API Integration",
+      "Risk Controls",
+      "Backtesting",
+      "Trade Execution",
+      "Persistent State",
+      "Observability",
+    ],
+    privacyNote:
+      "The operational implementation is private because it contains brokerage integrations, account-specific configuration, credentials, and proprietary decision logic. The architecture and representative behavior shown here have been sanitized.",
+  },
+  {
+    slug: "travel-intelligence-automation",
+    title: "Travel Intelligence & Decision Automation Engine",
+    category: "Agentic Systems",
+    label: "Agentic System",
+    year: "2026",
+    role: "System Designer & Developer",
+    description:
+      "An automated travel-intelligence platform that evaluates complete trip opportunities across cash fares, award availability, lodging, loyalty programs, schedule quality, and personal travel constraints.",
+    longDescription:
+      "Designed and built an automated travel-intelligence platform that evaluates complete trip opportunities across cash fares, award availability, lodging costs, loyalty programs, schedule quality, and personal travel constraints. Recurring workflows collect and normalize data from multiple providers, apply deterministic eligibility and quality filters, and score whole itineraries on total trip value rather than a single price field.",
+    highlights: [
+      "Recurring workflows collect and normalize data from multiple travel providers and apply configurable eligibility and quality filters.",
+      "Evaluates itineraries across price, duration, departure time, layovers, airport preferences, points usage, lodging cost, and total trip value.",
+      "Produces structured GitHub issues and email alerts with deduplication, API-budget controls, retries, source-level failure isolation, and run reporting.",
+    ],
+    media: "/projects/travel-intelligence-architecture.svg",
+    mediaAlt:
+      "Sanitized architecture diagram of the travel intelligence engine. Flight, award, and hotel sources feed a normalization stage, then deterministic eligibility filters, then trip evaluation that weighs total trip cost, schedule quality, and points optimization. The result is a ranked set of opportunities delivered as a GitHub issue and email, over a subtle connected-airport route motif.",
+    tags: [
+      "Agentic Systems",
+      "Python",
+      "GitHub Actions",
+      "Claude",
+      "API Integration",
+      "Workflow Orchestration",
+      "Decision Systems",
+      "Travel Intelligence",
+      "Data Normalization",
+      "Cost Optimization",
+      "Reliability Engineering",
+      "Observability",
+    ],
+    privacyNote:
+      "The operational implementation is private because it contains API credentials, personal travel preferences, and account-specific loyalty configuration. The architecture and representative behavior shown here have been sanitized.",
+  },
+  {
+    slug: "job-opportunity-intelligence",
+    title: "Job Opportunity Intelligence & Monitoring System",
+    category: "Agentic Systems",
+    label: "Intelligence System",
+    year: "2026",
+    role: "System Designer & Developer",
+    description:
+      "An automated system that discovers, normalizes, and evaluates job opportunities across structured employer feeds and broader search providers, with explicit, tunable accept/reject reasoning.",
+    longDescription:
+      "Designed and built an automated system that discovers, normalizes, and evaluates job opportunities across structured employer feeds and broader search providers. It maps inconsistent posting data into a common schema, removes duplicates, and evaluates roles against configurable career criteria — preserving explicit acceptance and rejection reasons so the policy remains explainable and tunable.",
+    highlights: [
+      "Maps inconsistent posting data into a common schema, removes duplicates, and evaluates roles against configurable career criteria.",
+      "Considers engineering scope, seniority, compensation, location, technology alignment, remote-work requirements, and posting recency.",
+      "Preserves explicit acceptance and rejection reasons while producing alerts, rejection summaries, run diagnostics, and API-cost reporting.",
+    ],
+    media: "/projects/job-intelligence-architecture.svg",
+    mediaAlt:
+      "Sanitized architecture diagram of the job opportunity intelligence system. Employer feeds and search sources are normalized and deduplicated, then passed through a policy evaluation funnel into fit classification and alerts. A clearly visible parallel branch emits rejection reasons and run diagnostics, emphasizing explainability and tunability.",
+    tags: [
+      "Agentic Systems",
+      "Python",
+      "GitHub Actions",
+      "Data Pipelines",
+      "API Integration",
+      "Information Retrieval",
+      "Rule Engines",
+      "LLM Evaluation",
+      "Monitoring",
+      "Decision Support",
+      "Data Normalization",
+      "Observability",
+    ],
+    privacyNote:
+      "The operational implementation is private because it contains personal career criteria, notification configuration, and service credentials. The architecture and representative behavior shown here have been sanitized.",
+  },
+  {
+    slug: "adaptive-planning-execution",
+    title: "Adaptive Planning & Execution System",
+    category: "Agentic Systems",
+    label: "Human-in-the-Loop System",
+    year: "2026",
+    role: "AI Workflow Designer & Developer",
+    description:
+      "A persistent, human-in-the-loop planning system that turns goals, responsibilities, calendar constraints, and working patterns into actionable daily and weekly plans — with the user always in control of execution.",
+    longDescription:
+      "Designed and built a persistent, human-in-the-loop planning system that converts goals, responsibilities, calendar constraints, and working patterns into actionable daily and weekly execution plans. It maintains structured context across planning cycles, decomposes ambiguous or avoided work into concrete starting actions, and adapts recommendations based on completion history — while user review and confirmation remain part of every cycle.",
+    highlights: [
+      "Maintains structured context across planning cycles and decomposes ambiguous or avoided work into concrete starting actions.",
+      "Prioritizes competing obligations, incorporates realistic preparation and transition buffers, and adapts recommendations based on completion history.",
+      "Supports daily planning, weekly reviews, backlog management, recurring responsibilities, and long-term goal alignment while preserving user control.",
+    ],
+    media: "/projects/adaptive-planning-architecture.svg",
+    mediaAlt:
+      "Sanitized architecture diagram of the adaptive planning system. Goals, calendar, responsibilities, and working patterns feed a planning engine that produces daily and weekly plans. The user confirms and executes those plans, then review and feedback flows into a persistent context store that loops back into the planning engine, forming a human-in-the-loop feedback cycle.",
+    tags: [
+      "Agentic Systems",
+      "Claude Skills",
+      "Human-in-the-Loop",
+      "LLM Orchestration",
+      "Persistent Context",
+      "Context Management",
+      "Workflow Design",
+      "Decision Support",
+      "Feedback Systems",
+      "Prompt Architecture",
+      "Personalization",
+    ],
+    privacyNote:
+      "The operational implementation is private because it contains personal schedules, goals, routines, and historical planning context. The architecture and representative behavior shown here have been sanitized.",
+  },
   {
     slug: "patient-risk-tier-classification",
     title: "Patient Risk Tier Classification",

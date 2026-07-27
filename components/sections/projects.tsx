@@ -13,6 +13,7 @@ import { SpotlightCard } from "@/components/spotlight-card"
 import { ProjectMedia } from "@/components/project-media"
 import { ProjectModal } from "@/components/project-modal"
 import {
+  projectImageAlts,
   projectImages,
   projects,
   projectsUi,
@@ -94,13 +95,13 @@ export function ProjectsSection() {
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-t-xl bg-secondary">
                   <ProjectMedia
                     src={projectImages(project)[0]}
-                    alt={`${project.title} preview`}
+                    alt={projectImageAlts(project)[0]}
                     sizes="(max-width: 640px) 100vw, 320px"
                     className="transition-transform duration-500 ease-out group-hover/spot:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/10 to-transparent opacity-80" />
                   <span className="absolute left-3 top-3 rounded-full border border-primary/40 bg-background/70 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-primary backdrop-blur">
-                    {project.category}
+                    {project.label ?? project.category}
                   </span>
                   <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-background/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-foreground opacity-0 backdrop-blur transition-opacity duration-300 group-hover/spot:opacity-100">
                     <Maximize2 className="size-3" />
