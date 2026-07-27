@@ -1,11 +1,16 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import { X, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react"
+import { X, ChevronLeft, ChevronRight, ArrowUpRight, Lock } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ProjectGallery } from "@/components/project-gallery"
 import { ImageInspector } from "@/components/image-inspector"
-import { projectImages, projectsUi, type Project } from "@/content"
+import {
+  projectImageAlts,
+  projectImages,
+  projectsUi,
+  type Project,
+} from "@/content"
 
 export function ProjectModal({
   project,
@@ -26,6 +31,7 @@ export function ProjectModal({
   const panelRef = useRef<HTMLDivElement | null>(null)
 
   const images = projectImages(project)
+  const alts = projectImageAlts(project)
   const [imageIndex, setImageIndex] = useState(0)
   const [inspecting, setInspecting] = useState(false)
 
@@ -148,6 +154,7 @@ export function ProjectModal({
         <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-border bg-secondary">
           <ProjectGallery
             images={images}
+            alts={alts}
             index={safeIndex}
             title={project.title}
             onPrev={() => goImage(-1)}
@@ -166,7 +173,7 @@ export function ProjectModal({
           </button>
 
           <span className="absolute left-4 top-4 rounded-full border border-primary/40 bg-background/70 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-primary backdrop-blur">
-            {project.category}
+            {project.label ?? project.category}
           </span>
         </div>
 
@@ -220,6 +227,23 @@ export function ProjectModal({
             ))}
           </ul>
 
+          {project.privacyNote && (
+            <div className="mt-6 flex gap-3 rounded-lg border border-border bg-secondary/40 p-4">
+              <Lock
+                className="mt-0.5 size-4 shrink-0 text-primary"
+                aria-hidden="true"
+              />
+              <div>
+                <h3 className="font-mono text-xs uppercase tracking-widest text-foreground">
+                  {projectsUi.privacyNote}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {project.privacyNote}
+                </p>
+              </div>
+            </div>
+          )}
+
           {project.link && (
             <a
               href={project.link}
@@ -253,6 +277,7 @@ export function ProjectModal({
       {inspecting && (
         <ImageInspector
           images={images}
+          alts={alts}
           index={safeIndex}
           title={project.title}
           onPrev={() => goImage(-1)}

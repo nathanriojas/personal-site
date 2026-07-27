@@ -18,6 +18,7 @@ type Point = { x: number; y: number }
  */
 export function ImageInspector({
   images,
+  alts,
   index,
   title,
   onPrev,
@@ -25,6 +26,8 @@ export function ImageInspector({
   onClose,
 }: {
   images: string[]
+  /** Descriptive alt text aligned to `images`; falls back to a generated label. */
+  alts?: string[]
   index: number
   title: string
   onPrev: () => void
@@ -32,6 +35,7 @@ export function ImageInspector({
   onClose: () => void
 }) {
   const src = images[index]
+  const alt = alts?.[index] ?? `${title} — figure ${index + 1}`
   const hasMultiple = images.length > 1
 
   const rootRef = useRef<HTMLDivElement | null>(null)
@@ -233,7 +237,7 @@ export function ImageInspector({
             <img
               key={src}
               src={src || "/placeholder.svg"}
-              alt={`${title} — figure ${index + 1}`}
+              alt={alt}
               draggable={false}
               onLoad={(e) => {
                 const img = e.currentTarget

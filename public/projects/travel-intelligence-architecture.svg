@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <title>Travel intelligence engine — sanitized architecture</title>
+  <defs>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.6" fill="#eef3f1"/>
+    </pattern>
+    <marker id="ahg" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 1L10 6L0 11Z" fill="#0e9d73"/>
+    </marker>
+    <marker id="ahn" markerWidth="11" markerHeight="11" refX="8" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 1L9 5.5L0 10Z" fill="#9aa7ac"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect width="1280" height="720" fill="url(#dots)"/>
+
+  <!-- Route / connected-airport motif (subtle, upper-right) -->
+  <g fill="none" stroke="#bfe6d6" stroke-width="1.6" stroke-dasharray="2 8" opacity="0.9">
+    <path d="M860 182 Q930 120 992 120"/>
+    <path d="M992 120 Q1080 150 1128 176"/>
+    <path d="M1128 176 Q1200 150 1224 118"/>
+  </g>
+  <g fill="#d8f0e6" stroke="#0e9d73" stroke-width="1.6">
+    <circle cx="860"  cy="182" r="5.5"/>
+    <circle cx="992"  cy="120" r="5.5"/>
+    <circle cx="1128" cy="176" r="5.5"/>
+    <circle cx="1224" cy="118" r="5.5"/>
+  </g>
+
+  <!-- Header -->
+  <text x="31" y="50" font-size="17" fill="#0e9d73" letter-spacing="2" font-weight="600">TRAVEL INTELLIGENCE ENGINE</text>
+  <text x="31" y="74" font-size="14" fill="#8b979d" letter-spacing="2">SANITIZED ARCHITECTURE</text>
+
+  <!-- Travel sources -->
+  <text x="300" y="126" font-size="13" fill="#8b979d" text-anchor="middle" letter-spacing="2">TRAVEL SOURCES</text>
+  <g stroke="#9aa7ac" stroke-width="1.6" fill="none">
+    <line x1="120" y1="203" x2="164" y2="326" marker-end="url(#ahn)"/>
+    <line x1="300" y1="203" x2="192" y2="326" marker-end="url(#ahn)"/>
+    <line x1="480" y1="203" x2="220" y2="326" marker-end="url(#ahn)"/>
+  </g>
+  <g font-size="15" fill="#55636b" text-anchor="middle">
+    <rect x="45"  y="150" width="150" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="120" y="171"><tspan x="120">Flight</tspan><tspan x="120" dy="18">fares</tspan></text>
+    <rect x="225" y="150" width="150" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="300" y="171"><tspan x="300">Award</tspan><tspan x="300" dy="18">availability</tspan></text>
+    <rect x="405" y="150" width="150" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="480" y="171"><tspan x="480">Hotel</tspan><tspan x="480" dy="18">rates</tspan></text>
+  </g>
+
+  <!-- Primary pipeline arrows -->
+  <g stroke="#0e9d73" stroke-width="3" fill="none">
+    <line x1="282" y1="384" x2="326" y2="384" marker-end="url(#ahg)"/>
+    <line x1="506" y1="384" x2="550" y2="384" marker-end="url(#ahg)"/>
+    <line x1="730" y1="384" x2="774" y2="384" marker-end="url(#ahg)"/>
+    <line x1="954" y1="384" x2="998" y2="384" marker-end="url(#ahg)"/>
+  </g>
+
+  <!-- Stage numbers -->
+  <g font-size="13" fill="#a4afb4" text-anchor="middle" letter-spacing="1.5">
+    <text x="192"  y="318">01</text>
+    <text x="416"  y="318">02</text>
+    <text x="640"  y="318">03</text>
+    <text x="864"  y="318">04</text>
+    <text x="1088" y="318">05</text>
+  </g>
+
+  <!-- Primary stage boxes -->
+  <g fill="#1f2a37" text-anchor="middle" font-weight="600">
+    <rect x="104"  y="330" width="176" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="192"  y="391" font-size="18">Normalization</text>
+
+    <rect x="328"  y="330" width="176" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="416"  y="376" font-size="20"><tspan x="416">Eligibility</tspan><tspan x="416" dy="28">filters</tspan></text>
+
+    <rect x="552"  y="330" width="176" height="108" rx="14" fill="#eef8f3" stroke="#0e9d73" stroke-width="2.5"/>
+    <text x="640"  y="376" font-size="20"><tspan x="640">Trip</tspan><tspan x="640" dy="28">evaluation</tspan></text>
+
+    <rect x="776"  y="330" width="176" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="864"  y="376" font-size="19"><tspan x="864">Ranked</tspan><tspan x="864" dy="28">opportunities</tspan></text>
+
+    <rect x="1000" y="330" width="176" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="1088" y="376" font-size="19"><tspan x="1088">GitHub issue</tspan><tspan x="1088" dy="28">&amp; email</tspan></text>
+  </g>
+
+  <!-- Evaluation criteria feeding trip evaluation -->
+  <g stroke="#9aa7ac" stroke-width="1.6" fill="none">
+    <line x1="450" y1="504" x2="600" y2="442" marker-end="url(#ahn)"/>
+    <line x1="640" y1="504" x2="640" y2="442" marker-end="url(#ahn)"/>
+    <line x1="830" y1="504" x2="680" y2="442" marker-end="url(#ahn)"/>
+  </g>
+  <g font-size="15" fill="#55636b" text-anchor="middle">
+    <rect x="370" y="506" width="160" height="54" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="450" y="528"><tspan x="450">Total trip</tspan><tspan x="450" dy="18">cost</tspan></text>
+    <rect x="560" y="506" width="160" height="54" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="640" y="528"><tspan x="640">Schedule</tspan><tspan x="640" dy="18">quality</tspan></text>
+    <rect x="750" y="506" width="160" height="54" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="830" y="528"><tspan x="830">Points</tspan><tspan x="830" dy="18">optimization</tspan></text>
+  </g>
+  <text x="640" y="588" font-size="13" fill="#8b979d" text-anchor="middle" letter-spacing="2">EVALUATION CRITERIA</text>
+
+  <!-- Caption -->
+  <text x="31" y="684" font-size="14" fill="#8b979d">Deterministic eligibility and quality filters rank whole itineraries on total trip value, not a single price field.</text>
+</svg>
