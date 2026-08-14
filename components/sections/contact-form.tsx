@@ -9,6 +9,7 @@
 import { useRef, useState, type FormEvent } from "react"
 import { Loader2, Send, CheckCircle2, AlertCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { controlClass, Field } from "@/components/ui/field"
 import { EMAIL_RE, LIMITS, type ContactField } from "@/lib/contact"
 import { contact } from "@/content"
 
@@ -17,47 +18,6 @@ type Fields = Record<ContactField, string>
 type FieldErrors = Partial<Record<ContactField, string>>
 
 const EMPTY: Fields = { name: "", email: "", subject: "", message: "" }
-
-/** Shared control styling: no heavy borders or white boxes — a barely-there
- *  surface that lifts on hover and picks up the emerald accent on focus. */
-function controlClass(hasError?: boolean) {
-  return cn(
-    "w-full rounded-lg border bg-white/[0.02] px-4 py-3 text-sm text-foreground shadow-sm shadow-black/20 outline-none transition-[color,background-color,border-color,box-shadow] duration-300 placeholder:text-muted-foreground/50 focus:ring-2 disabled:cursor-not-allowed disabled:opacity-60",
-    hasError
-      ? "border-destructive/50 focus:border-destructive/60 focus:ring-destructive/15"
-      : "border-white/10 hover:border-white/20 hover:bg-white/[0.035] focus:border-primary/50 focus:bg-white/[0.05] focus:ring-primary/15",
-  )
-}
-
-/** A labelled field: mono uppercase label, the control, and an inline error. */
-function Field({
-  id,
-  label,
-  error,
-  children,
-}: {
-  id: string
-  label: string
-  error?: string
-  children: React.ReactNode
-}) {
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className="mb-2 block font-mono text-[11px] font-medium uppercase tracking-[0.15em] text-muted-foreground"
-      >
-        {label}
-      </label>
-      {children}
-      {error ? (
-        <p id={`${id}-error`} className="mt-1.5 text-xs text-destructive/90">
-          {error}
-        </p>
-      ) : null}
-    </div>
-  )
-}
 
 export function ContactForm() {
   const [fields, setFields] = useState<Fields>(EMPTY)
