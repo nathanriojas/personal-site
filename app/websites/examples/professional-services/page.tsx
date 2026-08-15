@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Spectral, Libre_Franklin } from "next/font/google"
 import { ConceptBanner } from "@/components/samples/concept-banner"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { DemoProvider, DemoAction } from "@/components/samples/demo-action"
 import { ashfordVale as c } from "@/content/concepts"
 
 /*
@@ -35,6 +36,7 @@ const Label = ({ children }: { children: React.ReactNode }) => (
 
 export default function AdvisoryConcept() {
   return (
+    <DemoProvider>
     <div className={`${sans.className} min-h-screen bg-[#f7f6f2] text-[#171a18]`}>
       <ConceptBanner className="border-b border-[#171a18]/8 bg-[#f0efe9] text-[#5f635b]" linkClassName="text-[#2c4a3b]" />
 
@@ -168,15 +170,15 @@ export default function AdvisoryConcept() {
           <div className="space-y-6 sm:pt-10">
             <div>
               <p className="text-sm text-[#8a8e84]">{c.contact.emailLabel}</p>
-              <a href={`mailto:${c.contact.email}`} className={`${serif.className} text-xl text-[#2c4a3b] transition-colors hover:text-[#171a18]`}>{c.contact.email}</a>
+              <DemoAction className={`${serif.className} text-xl text-[#2c4a3b] transition-colors hover:text-[#171a18]`} ariaLabel={`Email ${c.contact.email}`}>{c.contact.email}</DemoAction>
             </div>
             <div>
               <p className="text-sm text-[#8a8e84]">{c.contact.officesLabel}</p>
               <p className={`${serif.className} text-xl text-[#171a18]`}>{c.contact.offices}</p>
             </div>
-            <a href={`mailto:${c.contact.email}`} className="inline-flex rounded-none bg-[#2c4a3b] px-7 py-3.5 text-sm font-medium text-[#f7f6f2] transition-colors hover:bg-[#22392e]">
+            <DemoAction className="inline-flex rounded-none bg-[#2c4a3b] px-7 py-3.5 text-sm font-medium text-[#f7f6f2] transition-colors hover:bg-[#22392e]">
               {c.contact.cta}
-            </a>
+            </DemoAction>
           </div>
         </div>
       </section>
@@ -191,5 +193,6 @@ export default function AdvisoryConcept() {
         </div>
       </footer>
     </div>
+    </DemoProvider>
   )
 }

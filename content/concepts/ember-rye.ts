@@ -68,7 +68,9 @@ export const emberRye = {
     body: "Walk-ins are always welcome at the bar, and reservations open two weeks out for the dining room.",
     primaryCta: "Reserve a table",
     secondaryCta: "or email us",
-    phone: "+12145550142",
+    // No dial/mailto strings: these controls are intercepted as demo-only
+    // actions (components/samples/demo-action.tsx). The address below is
+    // display text only.
     email: "hello@emberandrye-example.com",
   },
 

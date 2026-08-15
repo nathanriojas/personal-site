@@ -42,7 +42,7 @@ export const websitesHero = {
   eyebrow: "Website design & development",
   headline: "A better presence online.",
   lead: "Professional websites for small businesses and individuals who want their online presence to better reflect who they are and what they do.",
-  sub: "I design and build everything directly, from simple, fast websites to custom applications when a project needs more.",
+  sub: " I design and build everything directly, from simple, fast websites to custom applications when a project needs more.",
   primaryCta: "Start a project",
   secondaryCta: "See examples",
 } as const
@@ -56,9 +56,9 @@ export const websitesIntro = {
   // M.S. Computer Science (Georgia Tech) and B.S. Mechanical Engineering
   // (UT Austin) are both represented as completed, not in progress.
   paragraphs: [
-    "I spend most of my professional life building software and solving technical problems. I originally trained in mechanical engineering and later moved deeper into computer science and software engineering, but I've always enjoyed building things people can actually see and use.",
-    "I've also seen plenty of great small businesses and accomplished people whose online presence doesn't reflect the quality of what they do. A professional site shouldn't require an agency-sized budget. My background lets me personally cover work that would often be spread across several specialists, so a smaller client can get strong design and engineering without paying for a large team or layers of account management.",
-    "You'll work directly with me, from our first conversation through launch.",
+    "I spend most of my professional life building software and solving technical problems. I started in mechanical engineering before moving into computer science and software engineering, and that background has taught me to care as much about how something works in practice as how it’s built.",
+    "I’ve seen plenty of great small businesses and talented people whose online presence doesn’t reflect the quality of their work. A professional website shouldn’t require an agency-sized budget. By handling the design and engineering directly, I can keep the process simple and the cost reasonable while still building something polished and genuinely professional.",
+    "You'll work directly with me from our first conversation through launch.",
   ],
   portfolio: {
     text: "Software engineering is my day job.",
@@ -113,7 +113,7 @@ export const websitesExamples = {
   label: "A few examples",
   intro:
     "Original concept sites I built to show different styles and the kinds of projects I take on, not client work. Click into any of them and look around.",
-  note: "These are original concept websites, made to demonstrate range. They aren't real businesses or commissioned client work.",
+  note: "These are original concept websites, made to demonstrate range. They aren't real businesses, people, or commissioned client work.",
   cta: "View sample site",
   items: [
     {
@@ -121,7 +121,7 @@ export const websitesExamples = {
       category: "Restaurant & hospitality",
       title: "Ember & Rye",
       blurb:
-        "A wood-fired neighborhood restaurant: warm, atmospheric, and built to make you want a table.",
+        "A neighborhood spot focused on wood-fired cooking, good wine, and a menu that changes with the season.",
       image: "/samples/restaurant.png",
       href: "/websites/examples/restaurant",
     },
@@ -130,7 +130,7 @@ export const websitesExamples = {
       category: "Local service business",
       title: "Cornerstone Exteriors",
       blurb:
-        "A roofing contractor built to earn trust and generate calls: bold, fast, and relentless on mobile.",
+        "A local roofing company built around clear communication, dependable work, and an easy quote process.",
       image: "/samples/local-service.png",
       href: "/websites/examples/local-service",
     },
@@ -138,7 +138,7 @@ export const websitesExamples = {
       variant: "professional",
       category: "Professional services",
       title: "Ashford & Vale",
-      blurb: "A boutique strategy advisory: restrained, editorial, and quietly confident.",
+      blurb: "An independent advisory firm helping leadership teams work through strategy, growth, and operational challenges.",
       image: "/samples/professional-services.png",
       href: "/websites/examples/professional-services",
     },
@@ -146,7 +146,7 @@ export const websitesExamples = {
       variant: "personal",
       category: "Individual professional",
       title: "Maya Ellison",
-      blurb: "A designer's personal site: expressive, editorial, and unmistakably her own.",
+      blurb: "A personal site that brings together a designer’s work, background, writing, and professional identity.",
       image: "/samples/personal.png",
       href: "/websites/examples/personal",
     },
@@ -184,7 +184,7 @@ export type ServiceTier = {
 export const websitesPricing = {
   label: "Starting prices",
   intro:
-    "Real starting points, so you're not left guessing. Where a project lands depends on what it needs. You'll get a single fixed price before any work begins.",
+    "Real starting points, so you have an idea of cost upfront. Once we’ve talked through what you need, I’ll give you a fixed price before any work begins.",
   tiers: [
     {
       name: "Personal Presence",
@@ -337,7 +337,7 @@ export const websitesInquiry = {
   label: "Tell me what you're thinking.",
   intro:
     "You don't need a technical spec. Tell me a little about yourself or your business, what isn't working today, and what you'd like to change. I'll take it from there.",
-  subjectPrefix: "Website inquiry",
+  subjectPrefix: "WEBSITE INQUIRY ALERT",
   labels: {
     name: "Your name",
     email: "Email",

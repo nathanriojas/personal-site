@@ -3,6 +3,7 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google"
 import { ArrowRight } from "lucide-react"
 import { ConceptBanner } from "@/components/samples/concept-banner"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { DemoProvider, DemoAction } from "@/components/samples/demo-action"
 import { mayaEllison as c } from "@/content/concepts"
 
 /*
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 
 export default function PersonalConcept() {
   return (
+    <DemoProvider>
     <div className={`${grotesk.className} min-h-screen bg-[#f3f1ea] text-[#141317]`}>
       <ConceptBanner className="bg-[#141317] text-[#a7a5ad]" linkClassName="text-[#8fa0ff]" />
 
@@ -163,9 +165,9 @@ export default function PersonalConcept() {
             {c.contact.headingLine1}<br />{c.contact.headingLine2}
           </h2>
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a href={`mailto:${c.contact.email}`} className="text-xl text-[#f3f1ea] underline decoration-[#2b46ff] decoration-2 underline-offset-[6px] transition-colors hover:text-[#8fa0ff] sm:text-2xl">
+            <DemoAction className="text-xl text-[#f3f1ea] underline decoration-[#2b46ff] decoration-2 underline-offset-[6px] transition-colors hover:text-[#8fa0ff] sm:text-2xl" ariaLabel={`Email ${c.contact.email}`}>
               {c.contact.email}
-            </a>
+            </DemoAction>
             {/* Decorative — no real profiles exist for this fictional concept. */}
             <div className={`${mono.className} flex gap-5 text-sm text-[#a7a5ad]`} aria-hidden="true">
               {c.contact.socials.map((s) => (
@@ -186,5 +188,6 @@ export default function PersonalConcept() {
         </div>
       </footer>
     </div>
+    </DemoProvider>
   )
 }

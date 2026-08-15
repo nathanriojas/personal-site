@@ -26,8 +26,10 @@ export const cornerstone = {
 
   utilityBar: {
     hours: "Serving the North Dallas metroplex · Mon–Sat 7am–7pm",
+    // Display text only — no `tel:` href. Every phone control on this concept
+    // is intercepted as a demo-only action (components/samples/demo-action.tsx)
+    // so it can never launch the dialer on a real device.
     phoneLabel: "(972) 555-0188",
-    phoneHref: "+19725550188",
   },
 
   nav: [

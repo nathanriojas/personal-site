@@ -70,7 +70,7 @@ function compose(fields: Fields): { subject: string; message: string } {
   const who = isBusiness
     ? `Business${fields.company.trim() ? `: ${fields.company.trim()}` : ""}`
     : "Individual / professional"
-  const subject = `${websitesInquiry.subjectPrefix} — ${who}`
+  const subject = `${websitesInquiry.subjectPrefix} | ${who}`
 
   const L = websitesInquiry.labels
   const lines: string[] = [

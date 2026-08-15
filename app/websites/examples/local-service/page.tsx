@@ -16,6 +16,7 @@ import {
 import { ConceptBanner } from "@/components/samples/concept-banner"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { CornerstoneQuoteForm } from "@/components/samples/cornerstone-quote-form"
+import { DemoProvider, DemoAction } from "@/components/samples/demo-action"
 import { cornerstone as c, type CornerstoneIcon } from "@/content/concepts"
 
 /*
@@ -54,6 +55,7 @@ const icons: Record<CornerstoneIcon, typeof Home> = {
 
 export default function LocalServiceConcept() {
   return (
+    <DemoProvider>
     <div className={`${body.className} min-h-screen bg-[#f5f7fa] text-[#10202e] pb-16 sm:pb-0`}>
       <ConceptBanner className="bg-[#0a2038] text-[#a9bdd4]" linkClassName="text-[#f5a15e]" />
 
@@ -61,9 +63,9 @@ export default function LocalServiceConcept() {
       <div className="bg-[#0e2a47] text-[#ccdaea]">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 text-sm sm:px-8">
           <span className="hidden sm:inline">{c.utilityBar.hours}</span>
-          <a href={`tel:${c.utilityBar.phoneHref}`} className="inline-flex items-center gap-2 font-semibold text-white">
+          <DemoAction className="inline-flex items-center gap-2 font-semibold text-white" ariaLabel={`Call ${c.utilityBar.phoneLabel}`}>
             <Phone className="size-4 text-[#f26a1b]" /> {c.utilityBar.phoneLabel}
-          </a>
+          </DemoAction>
         </div>
       </div>
 
@@ -111,9 +113,9 @@ export default function LocalServiceConcept() {
               <a href="#quote" className={`${head.className} rounded bg-[#f26a1b] px-7 py-3.5 text-base uppercase tracking-wide text-white transition-colors hover:bg-[#d95810]`}>
                 {c.hero.primaryCta}
               </a>
-              <a href={`tel:${c.utilityBar.phoneHref}`} className={`${head.className} inline-flex items-center gap-2 rounded border-2 border-white/25 px-6 py-3 text-base uppercase tracking-wide text-white transition-colors hover:border-white`}>
+              <DemoAction className={`${head.className} inline-flex items-center gap-2 rounded border-2 border-white/25 px-6 py-3 text-base uppercase tracking-wide text-white transition-colors hover:border-white`} ariaLabel={`Call ${c.utilityBar.phoneLabel}`}>
                 <Phone className="size-5" /> {c.utilityBar.phoneLabel}
-              </a>
+              </DemoAction>
             </div>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#a9bdd4]">
               {c.badges.map((b) => {
@@ -276,9 +278,9 @@ export default function LocalServiceConcept() {
             <a href="#quote" className={`${head.className} rounded bg-white px-7 py-3.5 text-base uppercase tracking-wide text-[#0e2a47] transition-colors hover:bg-[#0e2a47] hover:text-white`}>
               {c.ctaBand.primaryCta}
             </a>
-            <a href={`tel:${c.utilityBar.phoneHref}`} className={`${head.className} inline-flex items-center gap-2 rounded border-2 border-white px-6 py-3 text-base uppercase tracking-wide transition-colors hover:bg-white hover:text-[#f26a1b]`}>
+            <DemoAction className={`${head.className} inline-flex items-center gap-2 rounded border-2 border-white px-6 py-3 text-base uppercase tracking-wide transition-colors hover:bg-white hover:text-[#f26a1b]`} ariaLabel={`Call ${c.utilityBar.phoneLabel}`}>
               <Phone className="size-5" /> {c.utilityBar.phoneLabel}
-            </a>
+            </DemoAction>
           </div>
         </div>
       </section>
@@ -314,13 +316,14 @@ export default function LocalServiceConcept() {
 
       {/* Sticky mobile CTA */}
       <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-black/10 bg-white sm:hidden">
-        <a href={`tel:${c.utilityBar.phoneHref}`} className={`${head.className} flex items-center justify-center gap-2 py-3.5 text-sm uppercase tracking-wide text-[#0e2a47]`}>
+        <DemoAction className={`${head.className} flex items-center justify-center gap-2 py-3.5 text-sm uppercase tracking-wide text-[#0e2a47]`} ariaLabel={c.stickyBar.call}>
           <Phone className="size-4" /> {c.stickyBar.call}
-        </a>
+        </DemoAction>
         <a href="#quote" className={`${head.className} flex items-center justify-center gap-2 bg-[#f26a1b] py-3.5 text-sm uppercase tracking-wide text-white`}>
           <Check className="size-4" /> {c.stickyBar.quote}
         </a>
       </div>
     </div>
+    </DemoProvider>
   )
 }

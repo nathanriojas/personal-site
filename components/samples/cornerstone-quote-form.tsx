@@ -8,8 +8,13 @@
  * instead shows a clear, honest inline confirmation that this is a concept
  * form and nothing was sent — representational rather than either broken or
  * (falsely) functional.
+ *
+ * Submitting swaps the form out for the confirmation, which destroys the
+ * button that had focus — so focus is explicitly moved to the confirmation
+ * (rather than being dropped to <body>) and the panel is a role="status" live
+ * region so screen-reader users hear the outcome.
  */
-import { useState, type FormEvent } from "react"
+import { useEffect, useRef, useState, type FormEvent } from "react"
 import { CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { cornerstone } from "@/content/concepts"
@@ -23,15 +28,27 @@ export function CornerstoneQuoteForm({
   headingFontClassName?: string
 }) {
   const [submitted, setSubmitted] = useState(false)
+  const confirmationRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (submitted) confirmationRef.current?.focus()
+  }, [submitted])
 
   function handleSubmit(e: FormEvent) {
+    // Never actually submits — this concept has no backend and represents a
+    // business that doesn't exist.
     e.preventDefault()
     setSubmitted(true)
   }
 
   if (submitted) {
     return (
-      <div className="mt-5 flex items-start gap-3 rounded border border-[#f26a1b]/25 bg-[#fff4ec] p-4">
+      <div
+        ref={confirmationRef}
+        role="status"
+        tabIndex={-1}
+        className="mt-5 flex items-start gap-3 rounded border border-[#f26a1b]/25 bg-[#fff4ec] p-4 outline-none focus-visible:ring-2 focus-visible:ring-[#f26a1b]/40"
+      >
         <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#f26a1b]" aria-hidden="true" />
         <p className="text-sm leading-relaxed text-[#33465a]">{f.confirmation}</p>
       </div>

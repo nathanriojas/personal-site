@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Cormorant_Garamond, Inter } from "next/font/google"
 import { ConceptBanner } from "@/components/samples/concept-banner"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { DemoProvider, DemoAction } from "@/components/samples/demo-action"
 import { emberRye as c } from "@/content/concepts"
 
 /*
@@ -64,6 +65,7 @@ function ImageSlot({
 
 export default function RestaurantConcept() {
   return (
+    <DemoProvider>
     <div className={`${body.className} min-h-screen bg-[#17110d] text-[#efe4d4]`}>
       <ConceptBanner className="bg-[#0e0a07] text-[#c9b8a3]" linkClassName="text-[#e08a3c]" />
 
@@ -224,12 +226,9 @@ export default function RestaurantConcept() {
                 </div>
               ))}
             </dl>
-            <a
-              href="#visit"
-              className="mt-8 inline-flex rounded-full border border-[#efe4d4]/20 px-6 py-3 text-sm font-medium transition-colors hover:border-[#e08a3c] hover:text-[#e8a765]"
-            >
+            <DemoAction className="mt-8 inline-flex rounded-full border border-[#efe4d4]/20 px-6 py-3 text-sm font-medium transition-colors hover:border-[#e08a3c] hover:text-[#e8a765]">
               {c.visit.cta}
-            </a>
+            </DemoAction>
           </div>
           <div
             className="relative min-h-[18rem] overflow-hidden rounded-2xl border border-[#efe4d4]/10"
@@ -262,12 +261,12 @@ export default function RestaurantConcept() {
             {c.reserve.body}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href={`tel:${c.reserve.phone}`} className="rounded-full bg-[#e08a3c] px-8 py-3.5 text-sm font-semibold text-[#17110d] transition-colors hover:bg-[#eaa056]">
+            <DemoAction className="rounded-full bg-[#e08a3c] px-8 py-3.5 text-sm font-semibold text-[#17110d] transition-colors hover:bg-[#eaa056]">
               {c.reserve.primaryCta}
-            </a>
-            <a href={`mailto:${c.reserve.email}`} className="text-sm text-[#c9b8a3] transition-colors hover:text-[#efe4d4]">
+            </DemoAction>
+            <DemoAction className="text-sm text-[#c9b8a3] transition-colors hover:text-[#efe4d4]">
               {c.reserve.secondaryCta}
-            </a>
+            </DemoAction>
           </div>
         </div>
       </section>
@@ -293,5 +292,6 @@ export default function RestaurantConcept() {
         </div>
       </footer>
     </div>
+    </DemoProvider>
   )
 }
