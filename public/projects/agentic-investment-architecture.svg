@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" font-family="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <title>Agentic investment system — sanitized architecture</title>
+  <defs>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.6" fill="#eef3f1"/>
+    </pattern>
+    <marker id="ahg" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 1L10 6L0 11Z" fill="#0e9d73"/>
+    </marker>
+    <marker id="ahn" markerWidth="11" markerHeight="11" refX="8" refY="5.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 1L9 5.5L0 10Z" fill="#9aa7ac"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect width="1280" height="720" fill="url(#dots)"/>
+
+  <!-- Header -->
+  <text x="31" y="50" font-size="17" fill="#0e9d73" letter-spacing="2" font-weight="600">AGENTIC INVESTMENT SYSTEM</text>
+  <text x="31" y="74" font-size="14" fill="#8b979d" letter-spacing="2">SANITIZED ARCHITECTURE</text>
+
+  <!-- Evidence inputs -->
+  <text x="325" y="126" font-size="13" fill="#8b979d" text-anchor="middle" letter-spacing="2">EVIDENCE INPUTS</text>
+
+  <!-- Funnel lines into the evidence layer -->
+  <g stroke="#9aa7ac" stroke-width="1.6" fill="none">
+    <line x1="95"  y1="203" x2="255" y2="368" marker-end="url(#ahn)"/>
+    <line x1="235" y1="203" x2="290" y2="368" marker-end="url(#ahn)"/>
+    <line x1="375" y1="203" x2="325" y2="368" marker-end="url(#ahn)"/>
+    <line x1="515" y1="203" x2="360" y2="368" marker-end="url(#ahn)"/>
+    <line x1="655" y1="203" x2="395" y2="368" marker-end="url(#ahn)"/>
+  </g>
+
+  <!-- Input chips -->
+  <g font-size="15" fill="#55636b" text-anchor="middle">
+    <rect x="30"  y="150" width="130" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="95"  y="171"><tspan x="95">Regulatory</tspan><tspan x="95" dy="18">filings</tspan></text>
+    <rect x="170" y="150" width="130" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="235" y="181">Fundamentals</text>
+    <rect x="310" y="150" width="130" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="375" y="181">Earnings</text>
+    <rect x="450" y="150" width="130" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="515" y="171"><tspan x="515">News &amp;</tspan><tspan x="515" dy="18">macro data</tspan></text>
+    <rect x="590" y="150" width="130" height="52" rx="10" fill="#fbfdfc" stroke="#dde5e2" stroke-width="1.6"/>
+    <text x="655" y="171"><tspan x="655">Portfolio</tspan><tspan x="655" dy="18">state</tspan></text>
+  </g>
+
+  <!-- Hard boundary between model-assisted reasoning and deterministic execution -->
+  <line x1="850" y1="150" x2="850" y2="600" stroke="#0e9d73" stroke-width="2" stroke-dasharray="3 7"/>
+  <rect x="772" y="117" width="156" height="30" rx="15" fill="#0e9d73"/>
+  <text x="850" y="137" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">HARD BOUNDARY</text>
+  <text x="440"  y="546" font-size="15" font-weight="600" fill="#55636b" text-anchor="middle" letter-spacing="1">MODEL-ASSISTED REASONING</text>
+  <text x="1050" y="546" font-size="15" font-weight="600" fill="#0e9d73" text-anchor="middle" letter-spacing="1">DETERMINISTIC EXECUTION</text>
+
+  <!-- Primary pipeline arrows -->
+  <g stroke="#0e9d73" stroke-width="3" fill="none">
+    <line x1="201"  y1="426" x2="239"  y2="426" marker-end="url(#ahg)"/>
+    <line x1="411"  y1="426" x2="449"  y2="426" marker-end="url(#ahg)"/>
+    <line x1="621"  y1="426" x2="659"  y2="426" marker-end="url(#ahg)"/>
+    <line x1="831"  y1="426" x2="869"  y2="426" marker-end="url(#ahg)"/>
+    <line x1="1041" y1="426" x2="1079" y2="426" marker-end="url(#ahg)"/>
+  </g>
+
+  <!-- Stage numbers -->
+  <g font-size="13" fill="#a4afb4" text-anchor="middle" letter-spacing="1.5">
+    <text x="115"  y="360">01</text>
+    <text x="325"  y="360">02</text>
+    <text x="535"  y="360">03</text>
+    <text x="745"  y="360">04</text>
+    <text x="955"  y="360">05</text>
+    <text x="1165" y="360">06</text>
+  </g>
+
+  <!-- Primary stage boxes -->
+  <g font-size="22" font-weight="600" fill="#1f2a37" text-anchor="middle">
+    <rect x="31"   y="372" width="168" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="115"  y="418"><tspan x="115">Market &amp;</tspan><tspan x="115" dy="28">broker data</tspan></text>
+
+    <rect x="241"  y="372" width="168" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="325"  y="418"><tspan x="325">Evidence</tspan><tspan x="325" dy="28">layer</tspan></text>
+
+    <rect x="451"  y="372" width="168" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="535"  y="418"><tspan x="535">Agentic</tspan><tspan x="535" dy="28">research</tspan></text>
+
+    <rect x="661"  y="372" width="168" height="108" rx="14" fill="#e3f5ec" stroke="#0e9d73" stroke-width="3.5"/>
+    <text x="745"  y="418" fill="#0f5132" font-weight="700"><tspan x="745">Risk &amp;</tspan><tspan x="745" dy="28">sizing gate</tspan></text>
+
+    <rect x="871"  y="372" width="168" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="955"  y="418"><tspan x="955">Order</tspan><tspan x="955" dy="28">execution</tspan></text>
+
+    <rect x="1081" y="372" width="168" height="108" rx="14" fill="#f4f7f6" stroke="#cdd8d3" stroke-width="2"/>
+    <text x="1165" y="418"><tspan x="1165">Monitoring</tspan><tspan x="1165" dy="28">&amp; audit</tspan></text>
+  </g>
+
+  <!-- Caption -->
+  <text x="31" y="684" font-size="14" fill="#8b979d">Probabilistic research and thesis evaluation are isolated from deterministic sizing, order validation, and execution.</text>
+</svg>
