@@ -188,7 +188,7 @@ export const websitesPricing = {
   tiers: [
     {
       name: "Personal Presence",
-      price: "$1,000",
+      price: "$1,250",
       priceNote: "from",
       summary:
         "A polished personal or professional site that puts your work and story in one place.",
