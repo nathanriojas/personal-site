@@ -27,7 +27,7 @@ export function WebsitesIntro() {
           <div className="mx-auto w-full max-w-[16rem] shrink-0 md:mx-0 md:max-w-none md:w-72">
             <div className="relative aspect-square overflow-hidden rounded-2xl border border-border bg-secondary shadow-xl shadow-black/[0.06]">
               <Image
-                src="/nathan-headshot.jpg"
+                src="/nathan-websites-portrait.jpg"
                 alt={websitesIntro.portraitAlt}
                 fill
                 quality={90}
