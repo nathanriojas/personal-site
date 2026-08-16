@@ -7,7 +7,7 @@ export const websitesMeta = {
   // Renders as "… · Nathan Riojas" via the title template in app/layout.tsx,
   // so this stays short enough that the full title survives SERP truncation
   // (49 chars here, 65 rendered). Leads with the service, then the audience.
-  metaTitle: "Website Design & Development for Small Businesses",
+  metaTitle: "Website Design & Development for Small Businesses & Individuals",
   // ~159 chars: long enough to carry the offer, short enough not to be cut.
   // Deliberately more explicit than the visible hero copy, which stays human.
   metaDescription:

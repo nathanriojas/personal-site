@@ -15,10 +15,10 @@ export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://nathanriojas.com"
 ).replace(/\/$/, "")
 
-export const siteName = `${site.name} — ${site.title}`
+export const siteName = `${site.name} - ${site.title}`
 
 export const defaultDescription =
-  "Nathan Riojas is a Staff Forward Deployed Engineer in Dallas, TX who builds reliable data systems and deploys software where it gets used. Mechanical engineer turned software developer with an M.S. in Computer Science from Georgia Tech."
+  "Nathan Riojas is a Staff Forward Deployed Engineer who builds reliable data systems and deploys software where it gets used. Mechanical engineer turned software developer with an M.S. in Computer Science from Georgia Tech."
 
 /** Absolute URL helper — accepts a root-relative path and returns a full URL. */
 export function absoluteUrl(path = "/"): string {
