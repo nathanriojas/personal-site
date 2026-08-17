@@ -41,8 +41,8 @@ export const websitesNav = {
 export const websitesHero = {
   eyebrow: "Website design & development",
   headline: "A better presence online.",
-  lead: "Professional websites for small businesses and individuals who want their online presence to better reflect who they are and what they do.",
-  sub: " I design and build everything directly, from simple, fast websites to custom applications when a project needs more.",
+  lead: "I design and build websites for small businesses and individuals who want their work to come across as professionally online as it does in the real world.",
+  sub: " Sometimes that means a simple, polished website. Sometimes it means something more custom. Either way, I work with you directly and build around what you actually need.",
   primaryCta: "Start a project",
   secondaryCta: "See examples",
 } as const
