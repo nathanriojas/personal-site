@@ -12,7 +12,7 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: "Foxtrot Services",
-    role: "Staff Forward Deployed Engineer",
+    role: "Staff FDE | People Lead",
     period: "Jun 2026 — Present",
     summary:
       "Build production software on Palantir Foundry for enterprise clients — configurable applications, reusable platform components, AI, and integrations rather than one-off implementations.",
@@ -20,6 +20,7 @@ export const experience: Experience[] = [
       "Modernized a Part 135 aviation operator's flight management system, delivering scalable applications, ontology actions, and platform integrations on Foundry.",
       "Built bidirectional integrations with the Avinode Marketplace via reusable writeback APIs and ontology actions, keeping Foundry applications and external aviation systems in sync.",
       "Shipped an AI-powered crew fatigue and scheduling app in React and TypeScript on AI FDE and AIP, with custom fatigue scoring and Claude-driven crew recommendations.",
+      "Lead career development and performance management for 3 FDEs across client engagements to assess delivery performance and advise engineering leadership on leveling, strengths, and growth opportunities"
     ],
     stack: [
       "Palantir Foundry",
