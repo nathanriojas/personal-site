@@ -1,12 +1,13 @@
 /**
- * About section: portrait + bio paragraphs, an Education list, and a Research &
- * Publications list. All content comes from content/about.ts.
+ * About section: portrait + bio paragraphs, an Education & Credentials list,
+ * and a Research & Publications list. All content comes from content/about.ts.
  */
 import Image from "next/image"
 import { GraduationCap, FileText, ArrowUpRight } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { EducationCard } from "@/components/sections/education-card"
-import { about, education, publications, site } from "@/content"
+import { CredentialCard } from "@/components/sections/credential-card"
+import { about, education, credentials, publications, site } from "@/content"
 
 export function AboutSection() {
   return (
@@ -43,6 +44,9 @@ export function AboutSection() {
           <ul className="mt-4 flex flex-col gap-3">
             {education.map((e) => (
               <EducationCard key={`${e.degree}-${e.field}`} entry={e} />
+            ))}
+            {credentials.map((c) => (
+              <CredentialCard key={c.name} entry={c} />
             ))}
           </ul>
         </div>

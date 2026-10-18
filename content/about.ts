@@ -1,5 +1,5 @@
 // About section content: the prose, the sub-section headings, plus the
-// education and publications data rendered within it.
+// education, credential, and publications data rendered within it.
 
 export const about = {
   paragraphs: [
@@ -10,11 +10,13 @@ export const about = {
   highlights: [{ label: "Based in", value: "Dallas, TX" }],
   /** Headings for the sub-sections within About. */
   headings: {
-    education: "Education",
+    education: "Education & Credentials",
     publications: "Research & Publications",
     /** Small marker on authored (vs. contributor) publications. */
     featured: "Featured",
   },
+  /** Link label on a credential card — opens the issuer's public badge page. */
+  verifyLabel: "Verify credential",
 } as const
 
 export type Education = {
@@ -42,6 +44,31 @@ export const education: Education[] = [
     notes: ["Specialization: Robotics", "Minor: Computer Science"],
     // UT Austin burnt orange
     accent: "#BF5700",
+  },
+]
+
+export type Credential = {
+  /** Exact badge name as issued by the provider. */
+  name: string
+  issuer: string
+  /** Public verification page for the badge. */
+  link: string
+  /** Brand color used for the understated hover shimmer on the card. */
+  accent: string
+}
+
+/**
+ * Professional credentials, listed alongside Education in the About section.
+ * `name` must match the issuer's badge exactly — "Foundations" is a distinct,
+ * lower tier than the Professional exam, so it always stays attached.
+ */
+export const credentials: Credential[] = [
+  {
+    name: "Claude Certified Architect - Foundations",
+    issuer: "Anthropic",
+    link: "https://www.credly.com/badges/e46278a3-ce3a-4986-b42e-ecf5ab9a33fa",
+    // Anthropic clay
+    accent: "#CC785C",
   },
 ]
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { site, education } from "@/content"
+import { site, education, credentials } from "@/content"
 
 // ---------------------------------------------------------------------------
 // Centralized SEO architecture.
@@ -110,6 +110,13 @@ export function jsonLdPerson() {
     alumniOf: education.map((e) => ({
       "@type": "CollegeOrUniversity",
       name: e.school,
+    })),
+    hasCredential: credentials.map((c) => ({
+      "@type": "EducationalOccupationalCredential",
+      name: c.name,
+      credentialCategory: "certificate",
+      url: c.link,
+      recognizedBy: { "@type": "Organization", name: c.issuer },
     })),
     sameAs: Object.values(site.socials),
   }
