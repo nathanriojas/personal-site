@@ -48,9 +48,17 @@ npm run lint     # eslint
 npm run generate:fieldnotes   # legacy manifest generator (see §6.2 caveat)
 ```
 
-Note: both `package-lock.json` and `pnpm-lock.yaml` exist. If you add a
-dependency, **update whichever lockfile your deploy uses (Vercel autodetects) —
-and ideally keep both in sync** to avoid a frozen-lockfile build failure.
+Note: this project uses **pnpm**, pinned via the `packageManager` field in
+`package.json`, and **`pnpm-lock.yaml` is the only lockfile**. A stale
+`package-lock.json` used to sit beside it; it was removed because it had
+drifted out of sync (still pinning an old Next) and doubled the dependency
+alerts GitHub reports. Don't reintroduce one — install with `pnpm` and commit
+the updated `pnpm-lock.yaml` alongside any dependency change.
+
+`shadcn` is a **devDependency**, not a runtime one: it's a CLI, and the only
+thing referencing it is the build-time `@import 'shadcn/tailwind.css'` at the
+top of `app/globals.css`. Keep it out of `dependencies` so it isn't treated as
+production surface.
 
 ## 4. Directory map
 
